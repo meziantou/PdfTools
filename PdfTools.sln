@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTools.ImagesToPdf", "Pdf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTools.ExtractImages", "PdfTools.ExtractImages\PdfTools.ExtractImages.csproj", "{1DD0B65D-5ACE-4CD2-99B6-E38B9BA00E46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTools.PdfToImages", "PdfTools.PdfToImages\PdfTools.PdfToImages.csproj", "{07F8759A-1585-411C-92C2-CEF90A8754D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1DD0B65D-5ACE-4CD2-99B6-E38B9BA00E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DD0B65D-5ACE-4CD2-99B6-E38B9BA00E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DD0B65D-5ACE-4CD2-99B6-E38B9BA00E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07F8759A-1585-411C-92C2-CEF90A8754D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F8759A-1585-411C-92C2-CEF90A8754D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F8759A-1585-411C-92C2-CEF90A8754D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F8759A-1585-411C-92C2-CEF90A8754D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,7 @@ using System.IO;
 using Microsoft.Extensions.CommandLineUtils;
 using Syncfusion.Pdf.Parsing;
 
-namespace PdfTools.ExtractImages
+namespace PdfTools.PdfToImages
 {
     class Program
     {
@@ -31,31 +31,16 @@ namespace PdfTools.ExtractImages
                 {
                     for (var i = 0; i < doc.Pages.Count; i++)
                     {
-                        var page = doc.Pages[i];
-                        var images = page.ExtractImages();
-                        try
+                        using (var bitmap = doc.ExportAsImage(i))
                         {
-                            foreach (var image in images)
-                            {
-                                var outputFileName = fileNameTemplate
-                                  .Replace("{filename}", fileName)
-                                  .Replace("{page}", i.ToString())
-                                  .Replace("{pagecount}", doc.Pages.Count.ToString())
-                                  .Replace("{extension}", "png");
+                            var outputFileName = fileNameTemplate
+                                .Replace("{filename}", fileName)
+                                .Replace("{page}", i.ToString())
+                                .Replace("{pagecount}", doc.Pages.Count.ToString())
+                                .Replace("{extension}", "png");
 
-                                var outputPath = Path.Combine(output, outputFileName);
-                                image.Save(outputPath, ImageFormat.Png);
-                            }
-                        }
-                        finally
-                        {
-                            if (images != null)
-                            {
-                                foreach (var image in images)
-                                {
-                                    image?.Dispose();
-                                }
-                            }
+                            var outputPath = Path.Combine(output, outputFileName);
+                            bitmap.Save(outputPath, ImageFormat.Png);
                         }
                     }
                 }
