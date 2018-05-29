@@ -20,7 +20,6 @@ namespace PdfToolds.InsertImage
             var outputOption = app.Option("--output", "output file", CommandOptionType.SingleValue);
             app.OnExecute(() =>
             {
-                // "input.pdf" "Signature50.png" 4 150 580 "output.pdf"
                 var inputFile = inputArg.Value;
                 var imageFile = imageArg.Value;
                 var pageNumber = ConvertUtilities.ChangeType(pageOption.Value(), 0);

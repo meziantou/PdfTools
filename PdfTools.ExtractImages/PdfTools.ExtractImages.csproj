@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA4E8E70-9B91-4F2E-A34D-D685E4F39951}</ProjectGuid>
+    <ProjectGuid>{1DD0B65D-5ACE-4CD2-99B6-E38B9BA00E46}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PdfTools.ImagesToPdf</RootNamespace>
-    <AssemblyName>PdfTools.ImagesToPdf</AssemblyName>
+    <RootNamespace>PdfTools.ExtractImages</RootNamespace>
+    <AssemblyName>PdfTools.ExtractImages</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
