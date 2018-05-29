@@ -10,6 +10,8 @@ namespace PdfToolds.InsertImage
         static void Main(string[] args)
         {
             var app = new CommandLineApplication();
+            app.HelpOption("--help");
+
             var inputArg = app.Argument("[input pdf]", "");
             var imageArg = app.Argument("[image]", "");
             var pageOption = app.Option("-p", "page number", CommandOptionType.SingleValue);
