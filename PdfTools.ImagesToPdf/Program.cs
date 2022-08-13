@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.CommandLineUtils;
+﻿using System.IO;
+using System.Linq;
+using Microsoft.Extensions.CommandLineUtils;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 
@@ -19,10 +21,27 @@ namespace PdfTools.ImagesToPdf
                 {
                     foreach (var arg in inputArg.Values)
                     {
+                        if (Directory.Exists(arg))
+                        {
+                            foreach (var file in Directory.GetFiles(arg).OrderBy(_ => _))
+                            {
+                                AddPage(file);
+                            }
+                        }
+                        else
+                        {
+                            AddPage(arg);
+                        }
+                    }
+
+                    doc.Save(outputArg.Value);
+
+                    void AddPage(string imagePath)
+                    {
                         var page = doc.Pages.Add();
                         var graphics = page.Graphics;
 
-                        PdfImage image = new PdfBitmap(arg);
+                        PdfImage image = new PdfBitmap(imagePath);
                         float PageWidth = page.Graphics.ClientSize.Width;
                         float PageHeight = page.Graphics.ClientSize.Height;
                         float myWidth = image.Width;
@@ -46,8 +65,6 @@ namespace PdfTools.ImagesToPdf
                         float YPosition = 0;
                         graphics.DrawImage(image, XPosition, YPosition, myWidth, myHeight);
                     }
-
-                    doc.Save(outputArg.Value);
                 }
                 return 0;
             });
